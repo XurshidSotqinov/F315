@@ -1,0 +1,40 @@
+202
+function isHappy(n: number): boolean 
+{
+    let arr : number[] = [];
+    arr.push(n);
+    while(true)
+    {
+        n = fff(n); // 2
+        if(n == 1)
+        {
+            return true;
+        }
+        if(arr.includes(n))
+        {
+            break;
+        }
+        
+        arr.push(n); // 11 2 4 16 37 
+    }
+    
+    return false;
+};
+
+
+function fff(a : number) : number
+{
+    let res = 0;
+    while(true)
+    {
+        let x1 : number = a % 10;
+        res += x1 * x1;
+        a = Math.floor(a / 10);
+        if(a == 0)
+        {
+            break;
+        }
+    }
+    
+    return res;
+}
