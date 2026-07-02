@@ -1,0 +1,32 @@
+20
+
+function isValid(s: string): boolean 
+{
+    // ({)} (){} => {}()
+    // {()}
+    // ((((()))))
+    // 
+    let arr : string[] = [];    
+    for(let i : number = 0; i < s.length; i++)
+    {
+        arr.push(s[i]);
+        if(arr.length >= 2)
+        {
+            let l : number = arr.length;
+            if(arr[l-2] == '(' && arr[l-1] == ')' 
+                || arr[l-2] == '{' && arr[l-1] == '}'
+                || arr[l-2] == '[' && arr[l-1] == ']')
+            {
+                arr.pop();
+                arr.pop();
+            }
+        }
+    }
+    
+    if(arr.length == 0)
+    {
+        return true;
+    }
+    
+    return false;
+};
